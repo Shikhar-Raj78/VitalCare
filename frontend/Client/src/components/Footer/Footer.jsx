@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/vitalcare_logo";
+import vitalcare_logo from "../../assets/vitalcare_logo.png";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
               <div className="w-full mb-10">
                 <Link to="/home" className="mb-6 inline-block max-w-[160px]">
-                  <img src={logo} alt="logo" className="max-w-full" />
+                  <img src={vitalcare_logo} alt="logo" className="max-w-full" />
                 </Link>
                 <p className="text-base mb-7 text-body-color">
                   Protecting your health and peace of mind, one policy at a

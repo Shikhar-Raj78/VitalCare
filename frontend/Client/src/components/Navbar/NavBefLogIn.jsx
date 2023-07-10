@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import vitalcare_logo from "../../assets/vitalcare_logo.png";
 import { Link } from "react-router-dom";
-export const Navbar = () => {
+export const NavBefLogIn = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,7 +15,7 @@ export const Navbar = () => {
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={vitalcare_logo} className="h-28" alt="Flowbite Logo" />
+            <img src={vitalcare_logo} className="h-24" alt="Flowbite Logo" />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -43,11 +43,11 @@ export const Navbar = () => {
             </svg>
           </button>
           <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto` }id="navbar-default">
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border-b-2 border-gray-100  bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-green-1000">
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border-b-2 border-gray-100  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-green-1000">
               <li>
                 <Link
                   to="/renew"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 hover:text-green-950"
                 >
                   Renew
                 </Link>
@@ -55,7 +55,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   to="/claims"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 hover:text-green-950"
                 >
                   Claims
                 </Link>
@@ -63,7 +63,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   to="/about"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 hover:text-green-950"
                 >
                   About us
                 </Link>
@@ -71,7 +71,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 hover:text-green-950"
                 >
                   Contact Us
                 </Link>
@@ -79,7 +79,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   to="/register"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 hover:text-green-950"
                 >
                   Sign up
                 </Link>

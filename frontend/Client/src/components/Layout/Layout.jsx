@@ -1,11 +1,18 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
-import { Navbar } from '../Navbar/Navbar'
+import Footer from '../footer/Footer'
+import { Navbar } from '../navbar/Navbar'
+import { NavBefLogIn } from '../navbar/NavBefLogIn'
+import { ShowOnLogin, ShowOnLogout } from '../protect/HiddenLink'
 
 const Layout = ({children}) => {
   return (
     <>
-      <Navbar />
+      <ShowOnLogin>
+        <Navbar />
+      </ShowOnLogin>
+      <ShowOnLogout>
+        <NavBefLogIn />
+      </ShowOnLogout>
       <div style={{minHeight: "80vh"}} className='--pad'>
         {children}
       </div>
