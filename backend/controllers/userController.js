@@ -2,7 +2,6 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const Token = require("../models/tokenModel");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
@@ -49,9 +48,9 @@ const registerUser = asyncHandler(async (req, res) => { // async handler allows 
     sameSite: "none",
     secure: true,
   });
-
+  // console.log(token)
   if (user) {
-    const { _id, name, email, photo, phone, bio } = user;
+    const { _id, name, email, age, gender, address, status, appliedPlans } = user;
     res.status(201).json({
       _id,
       name,
@@ -60,6 +59,8 @@ const registerUser = asyncHandler(async (req, res) => { // async handler allows 
       gender,
       address,
       token,
+      status,
+      appliedPlans
     });
   } else {
     res.status(400);
@@ -71,7 +72,7 @@ const registerUser = asyncHandler(async (req, res) => { // async handler allows 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  //Validate Request
+  // Validate Request
   if (!email || !password) {
     res.status(400);
     throw new Error("Please add email and password.");
@@ -100,7 +101,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const passwordIsCorrect = await bcrypt.compare(password, user.password);
 
   if (user && passwordIsCorrect) {
-    const { _id, name, email, age, gender, address} = user;
+    const { _id, name, email, age, gender, address, status, appliedPlans} = user;
     res.status(200).json({
       _id,
       name,
@@ -109,6 +110,8 @@ const loginUser = asyncHandler(async (req, res) => {
       gender,
       address,
       token,
+      status,
+      appliedPlans
     });
   } else {
     res.status(400);
@@ -131,19 +134,19 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 // Get User Data
-
 const getUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-
   if (user) {
-    const { _id, name, email, age, gender, address } = user;
+    const { _id, name, email, age, gender, address, status, appliedPlans } = user;
     res.status(200).json({
       _id,
       name,
       email,
       age,
       gender,
-      address
+      address,
+      status,
+      appliedPlans
     });
   } else {
     res.status(400);
@@ -168,6 +171,30 @@ const loginStatus = asyncHandler(async (req, res) => {
   }
 });
 
+const applyForPlan = async (req, res) => {
+  try {
+    const { plan, email } = req.body;
+
+    // Check if user exists
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the user has already applied for this plan
+    if (user.appliedPlans.includes(plan._id)) {
+      return res.status(400).json({ message: 'User already applied for this plan' });
+    }
+
+    // Add plan to user's applied plans
+    user.appliedPlans.push(plan._id);
+    await user.save();
+
+    res.status(200).json({ message: 'Plan applied successfully', user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 module.exports = {
   registerUser,
@@ -175,4 +202,5 @@ module.exports = {
   logoutUser,
   getUser,
   loginStatus,
+  applyForPlan,
 };

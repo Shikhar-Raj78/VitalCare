@@ -3,6 +3,7 @@ import vitalcare_logo from "../../assets/vitalcare_logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../services/authService";
 import { useDispatch } from "react-redux";
+import { SET_LOGIN } from "../../redux/features/auth/authSlice";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,11 +13,10 @@ export const Navbar = () => {
   const logout = async () => {
     await logoutUser();
     await dispatch(SET_LOGIN(false));
+    localStorage.setItem('token', null)
     navigate("/login");
   };
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
 
   return (
     <>
@@ -26,7 +26,7 @@ export const Navbar = () => {
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={vitalcare_logo} className="h-2" alt="VitalCare Logo" />
+            <img src={vitalcare_logo} className="h-24" alt="VitalCare Logo" />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -62,6 +62,14 @@ export const Navbar = () => {
             <ul className="flex flex-col p-4 md:p-0 mt-4 border-b-2 border-gray-100   md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-green-1000">
               <li>
                 <Link
+                  to="/"
+                  className="block py-2 px-3 hover:text-green-950"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/plans"
                   className="block py-2 px-3 hover:text-green-950"
                 >
@@ -70,38 +78,22 @@ export const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/renew"
-                  className="block py-2 px-3  "
-                >
-                  Renew
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/claims"
                   className="block py-2 px-3 hover:text-green-950"
                 >
-                  Claims
+                  Your Plans
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/claimStatus"
                   className="block py-2 px-3 hover:text-green-950"
                 >
-                  About us
+                  ClaimStatus
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  className="block py-2 px-3 hover:text-green-950"
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <button className="block py-2 px-3 hover:text-green-950" onClick = { logout }>
+                <button className="block py-1 px-2 text-white hover:bg-green-700 bg-green-500 rounded-lg " onClick = { logout }>
                   Sign out
                 </button>
               </li>

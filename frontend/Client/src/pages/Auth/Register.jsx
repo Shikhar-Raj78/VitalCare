@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { TiUserAddOutline } from "react-icons/ti";
-import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { registerUser, validateEmail } from "../../services/authService";
 import { useDispatch } from "react-redux";
-import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
+import { SET_LOGIN, SET_NAME, SET_USER } from "../../redux/features/auth/authSlice";
 import { Loader } from "../../components/loader/Loader";
-import styles from "./auth.module.scss";
 
 const initialState = {
   name: "",
@@ -53,7 +51,7 @@ const Register = () => {
       password,
       age,
       gender,
-      address
+      address,
     };
 
     setIsLoading(true);
@@ -62,89 +60,105 @@ const Register = () => {
       // console.log(data)
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.name));
-      navigate("/dashboard");
+      await dispatch(SET_USER(data))
+      localStorage.setItem('token', data.token)
+      navigate("/");
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
     }
   };
   return (
-    <div className={`container ${styles.auth}`}>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-5 mt-4 mb-4">
       {isLoading && <Loader />}
-      <Card>
-        <div className={styles.form}>
-          <div className="--flex-center">
-            <TiUserAddOutline size={35} color="#999" />
-          </div>
-          <h2>Register</h2>
-          <form onSubmit={register}>
-            <input
-              type="text"
-              placeholder="Full Name"
-              required
-              name="name"
-              value={name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              name="email"
-              value={email}
-              onChange={handleInputChange}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              name="password"
-              value={password}
-              onChange={handleInputChange}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              required
-              name="password2"
-              value={password2}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              placeholder="Age"
-              required
-              name="age"
-              value={age}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              placeholder="Gender"
-              required
-              name="gender"
-              value={gender}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              placeholder="Full Address"
-              required
-              name="address"
-              value={address}
-              onChange={handleInputChange}
-            />
-            <button type="submit" className="--btn --btn-primary --btn-block">
-              Register
-            </button>
-          </form>
-          <span className={styles.register}>
-            <Link to="/">Home</Link>
-            <p>&nbsp;Already have an account? &nbsp;</p>
-            <Link to="/login">Login</Link>
-          </span>
+      <div className="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
+        <div className="flex justify-center mb-6">
+          <TiUserAddOutline size={35} color="#38a169" />
         </div>
-      </Card>
+        <h2 className="text-2xl font-semibold text-center mb-4 text-gray-800">
+          Register
+        </h2>
+        <form onSubmit={register} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+            name="name"
+            value={name}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            name="email"
+            value={email}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            name="password"
+            value={password}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            required
+            name="password2"
+            value={password2}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="text"
+            placeholder="Age"
+            required
+            name="age"
+            value={age}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="text"
+            placeholder="Gender"
+            required
+            name="gender"
+            value={gender}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <input
+            type="text"
+            placeholder="Full Address"
+            required
+            name="address"
+            value={address}
+            onChange={handleInputChange}
+            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:border-green-500"
+          />
+          <button
+            type="submit"
+            className="w-full py-3 text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300 transition duration-200"
+          >
+            Register
+          </button>
+        </form>
+        <div className="flex justify-center mt-6 text-gray-600 space-x-2">
+          <Link to="/" className="text-green-900 hover:underline">
+            Home
+          </Link>
+          <p>Already have an account?</p>
+          <Link to="/login" className="text-green-900 hover:underline">
+            Login
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

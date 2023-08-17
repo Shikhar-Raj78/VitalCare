@@ -3,7 +3,7 @@ import React from "react";
 export const ClaimNum = () => {
   return (
     <div className="bg-white py-12">
-      <h1 className="text-center text-indigo-600 font-bold my-3">
+      <h1 className="text-center font-bold my-3">
         CLAIMS IN NUMBERS
       </h1>
       <div className="flex justify-center">
@@ -25,7 +25,7 @@ export const ClaimNum = () => {
                 />
               </svg>
 
-              <div className="text-3xl font-bold text-indigo-600">
+              <div className="text-3xl font-bold text-green-500">
                 75 Lakh +
               </div>
             </div>
@@ -52,7 +52,7 @@ export const ClaimNum = () => {
                 />
               </svg>
 
-              <div className="text-3xl font-bold text-indigo-600">
+              <div className="text-3xl font-bold text-green-500">
                 4 Crore +
               </div>
             </div>
@@ -79,7 +79,7 @@ export const ClaimNum = () => {
                 />
               </svg>
 
-              <div className="text-3xl font-bold text-indigo-600">
+              <div className="text-3xl font-bold text-green-500">
                 5000 + Claims
               </div>
             </div>

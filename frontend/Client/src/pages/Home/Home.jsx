@@ -5,7 +5,6 @@ import { ClaimNum } from "../../components/claimnum/ClaimNum";
 import { ClaimStat } from "../../components/claimstat/claimstat";
 import { FreqAskQues } from "../../components/freqaskques/FreqAskQues";
 
-
 export const Home = () => {
   const images = [
     "https://www.starhealth.in/_next/image/?url=https%3A%2F%2Fd28c6jni2fmamz.cloudfront.net%2FIB_212544_212544115839217_SM_759742_2f536d6159.jpg&w=640&q=75",
@@ -25,17 +24,14 @@ export const Home = () => {
       clearInterval(interval);
     };
   }, [images.length]);
-  const getQuote = async(e) => {
-    e.preventDefault()
-  }
   return (
     <div>
-      <div className="flex ml-4 mt-4 w-auto">
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-10/6 ml-10 mt-10">
+      <div className="flex justify-center items-center mt-4 w-full">
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full p-4">
           {images.map((image, index) => (
             <img
               key={index}
-              className={`object-cover object-center rounded ${
+              className={`object-cover object-center rounded w-full ${
                 index === currentImageIndex ? "block" : "hidden"
               }`}
               alt="hero"
@@ -43,23 +39,20 @@ export const Home = () => {
             />
           ))}
         </div>
-        <div className="flex justify-center items-center w-full h-120">
-          <div className="bg-green-100 h-auto w-auto rounded-md">
-            <form onSubmit={getQuote} className="flex flex-col gap-y-2 p-4 m-8 mt-10">
-              <span>
-                Get Health Insurance Quote
-              </span>
-              <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name" required />
-              <input type="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
-              <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone Number" required />
-              <button className="bg-green-900 rounded-md text-white h-10">Get a quote</button>
-            </form>
-          </div>
-        </div>
+        <div className="w-1/2 ml-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          Secure Your Health with VitalCare
+        </h2>
+        <p className="text-lg text-gray-600 mb-4">
+          At VitalCare, we offer comprehensive health insurance plans tailored to
+          meet your needs and budget. Whether you’re looking for basic coverage
+          or premium benefits, we’ve got you covered. Enjoy peace of mind with
+          our reliable and affordable options.
+        </p>
+      </div>
       </div>
       <Stat></Stat>
-      <Home_Plans>
-      </Home_Plans>
+      <Home_Plans></Home_Plans>
       <ClaimStat></ClaimStat>
       <ClaimNum></ClaimNum>
       <FreqAskQues></FreqAskQues>

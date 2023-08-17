@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 export const NavBefLogIn = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
   return (
     <>
       <nav className="">
@@ -15,7 +12,7 @@ export const NavBefLogIn = () => {
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={vitalcare_logo} className="h-24" alt="Flowbite Logo" />
+            <img src={vitalcare_logo} className="h-24" alt="VitalCare Logo" />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -46,34 +43,26 @@ export const NavBefLogIn = () => {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border-b-2 border-gray-100  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 text-green-1000">
               <li>
                 <Link
-                  to="/renew"
+                  to="/"
                   className="block py-2 px-3 hover:text-green-950"
                 >
-                  Renew
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/claims"
+                  to="/login"
                   className="block py-2 px-3 hover:text-green-950"
                 >
-                  Claims
+                  Plans
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/login"
                   className="block py-2 px-3 hover:text-green-950"
                 >
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="block py-2 px-3 hover:text-green-950"
-                >
-                  Contact Us
+                  Claim
                 </Link>
               </li>
               <li>

@@ -4,7 +4,7 @@ export const ClaimStat = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-10 py-10 mx-auto">
+        <div className="container px-5 py-10 mx-auto">
           <div className="text-center mb-20">
             <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 font-bold mx-auto text-indigo-700 mb-4">
               HASSLE-FREE CLAIM PROCESS
@@ -12,19 +12,19 @@ export const ClaimStat = () => {
             <h1 className="sm:text-4xl text-2xl font-medium title-font text-gray-900 mb-4">
               Take it Easy!
             </h1>
-            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 font-semibold mx-auto text-gray-500s">
+            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 font-semibold mx-auto text-gray-500">
               Intimate your claim effortlessly.
             </p>
-            <button className="flex mx-auto mt-7 text-white bg-[#EE744D] border-0 py-2 px-8 focus:outline-none hover:bg-[#FF4500] rounded text-lg">
+            <button className="flex mx-auto mt-7 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
               File a Claim &gt;
             </button>
             <div className="flex mt-6 justify-center">
               <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
             </div>
           </div>
-          <div className="flex  justify-center gap-8">
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center bg-white border rounded shadow-xl">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="p-4 flex flex-col text-center items-center bg-white border rounded shadow-xl">
+              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -46,8 +46,8 @@ export const ClaimStat = () => {
                 </p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center bg-white border rounded shadow-xl">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+            <div className="p-4 flex flex-col text-center items-center bg-white border rounded shadow-xl">
+              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -68,13 +68,13 @@ export const ClaimStat = () => {
                   24X7 Support
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Call us at +91 93283-73131 / +91 85114-411930 to clear your
+                  Call us at +91 9876543210 / +91 1234567899 to clear your
                   queries.
                 </p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center bg-white border rounded shadow-xl">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+            <div className="p-4 flex flex-col text-center items-center bg-white border rounded shadow-xl">
+              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

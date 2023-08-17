@@ -1,5 +1,6 @@
 export const plan_arr = [
   {
+    img: 'https://s.yimg.com/ny/api/res/1.2/v.TXcABoamLBKlKZnfe6Ow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/en/gobankingrates_644/0380408edd2e35f16d3e489dab3ddbac',
     title: "VitalCare Essential",
     overview:
       "VitalCare Essential is a comprehensive plan designed for individuals and families seeking affordable coverage with essential healthcare services. It's perfect for those who want to ensure basic protection without extensive out-of-pocket costs.",
@@ -23,6 +24,7 @@ export const plan_arr = [
     ],
   },
   {
+    img: 'https://www.sheknows.com/wp-content/uploads/2018/08/qjl2gsmtsvm1nj3qawba.jpeg',
     title: "VitalCare Premium Plus",
     overview:
       "VitalCare Premium Plus is a high-end plan offering extensive coverage, ideal for those who want minimal out-of-pocket expenses and access to a wide range of healthcare services, including wellness and alternative treatments.",
@@ -46,6 +48,7 @@ export const plan_arr = [
     ],
   },
   {
+    img: 'https://st4.depositphotos.com/1049680/28264/i/450/depositphotos_282644356-stock-photo-young-indian-doctor-man-standing.jpg',
     title: "VitalCare FlexPlan",
     overview:
       "VitalCare FlexPlan is a customizable health insurance plan designed for individuals who prefer to tailor their coverage according to their specific healthcare needs and budget constraints.",
@@ -70,6 +73,7 @@ export const plan_arr = [
     ],
   },
   {
+    img : 'https://www.yourtango.com/sites/default/files/image_blog/couples-married-reveal-secret-wedded-bliss.png',
     title: "VitalCare Senior Secure",
     overview:
       "VitalCare Senior Secure is tailored for individuals aged 65 and above, providing comprehensive coverage for the healthcare needs typically associated with senior citizens, including extensive support for chronic conditions and long-term care.",
